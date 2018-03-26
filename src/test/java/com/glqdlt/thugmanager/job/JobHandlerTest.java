@@ -2,6 +2,11 @@ package com.glqdlt.thugmanager.job;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,32 +19,19 @@ import static org.junit.Assert.*;
  * Created By iw.jhun
  * On 2018-03-26 , 오전 11:55
  */
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class JobHandlerTest {
 
 
-    private int jobIndex;
-    private List<String> URLS;
-    private Map<String,Integer> jobPool;
-
-
-    @Before
-    public void setUp() {
-        this.jobIndex = 0;
-
-        this.URLS = new ArrayList<>();
-        for(int i=0; i <99; i++){
-            URLS.add("http://sample"+i+".com");
-        }
-
-        this.jobPool = new HashMap<>();
-        this.jobPool.put("agent1",0);
-        this.jobPool.put("agent2",0);
-
-    }
+    @Autowired
+    JobHandler jobHandler;
 
 
     @Test
     public void checkFreeJob() {
+        System.out.println(this.jobHandler.getJobIndex());
+        this.jobHandler.getURLS().forEach(x -> System.out.println(x));
     }
 
     @Test
