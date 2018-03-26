@@ -47,24 +47,19 @@ public class RequestBuilderTest {
 
         List<ListenableFuture<ResponseEntity<String>>> listFuture = new ArrayList<>();
 
-        URLS.forEach(x -> {
-            listFuture.add(callbackMethod(x));
-        });
+        URLS.forEach(url ->listFuture.add(callbackMethod(url)) );
 
-
-
-        TimeUnit.SECONDS.sleep(15);
-
+        TimeUnit.SECONDS.sleep(10);
     }
 
 
-    public ListenableFuture<ResponseEntity<String>>  callbackMethod(String url) {
+    public ListenableFuture<ResponseEntity<String>> callbackMethod(String url) {
 
         ListenableFuture<ResponseEntity<String>> future = this.asyncRestTemplate.getForEntity(url, String.class);
 
         future.addCallback(result -> {
             log.debug("=================");
-            log.debug("url: "+url);
+            log.debug("url: " + url);
             log.debug(result.getBody());
             log.debug(result.getStatusCode() + "");
             log.debug("=================");
