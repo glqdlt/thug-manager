@@ -1,5 +1,6 @@
 package com.glqdlt.thugmanager.job;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,12 +30,18 @@ public class JobHandlerTest {
 
 
     @Test
+    public void init(){
+        Assert.assertEquals(0,this.jobHandler.getJobIndex());
+        Assert.assertNotEquals(0, this.jobHandler.getURLS().size());
+    }
+
+    @Test
     public void checkFreeJob() {
-        System.out.println(this.jobHandler.getJobIndex());
-        this.jobHandler.getURLS().forEach(x -> System.out.println(x));
+
     }
 
     @Test
     public void updateAgentStatus() {
+
     }
 }
