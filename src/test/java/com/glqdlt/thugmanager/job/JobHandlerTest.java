@@ -24,13 +24,11 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class JobHandlerTest {
 
-
     @Autowired
     JobHandler jobHandler;
 
-
     @Test
-    public void init(){
+    public void initClass(){
         Assert.assertEquals(0,this.jobHandler.getJobIndex());
         Assert.assertNotEquals(0, this.jobHandler.getURLS().size());
     }
@@ -44,4 +42,5 @@ public class JobHandlerTest {
     public void updateAgentStatus() {
 
     }
+
 }

@@ -6,5 +6,10 @@ package com.glqdlt.thugmanager.job;
  */
 public class JobRunner {
 
+    private String url;
+    public JobRunner(String url) {
+        this.url = url;
+    }
+
 
 }

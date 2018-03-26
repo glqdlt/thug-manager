@@ -42,16 +42,13 @@ public class JobHandler {
     }
 
 
-
-
-
-
     void checkFreeJob(){
 
         while(true){
 
         }
     }
+
 
     public synchronized void updateAgentStatus(String agent){
         if(this.jobPool.get(agent) == 0){
